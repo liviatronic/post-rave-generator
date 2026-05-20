@@ -1,0 +1,155 @@
+/* shared.css — image audio visualizer */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000000;
+  color: #eee;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #d0ff58;
+  margin-bottom: 4px;
+}
+
+p.desc {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 13px;
+}
+
+.info {
+  font-size: 13px;
+  margin-top: 8px;
+  min-height: 16px;
+}
+
+/* ── Layout shell ─────────────────────────────────────────── */
+/* Single column on narrow screens; 3 equal columns above 860px */
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 24px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 860px) {
+  .panel-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+}
+
+/* ── Panel card ───────────────────────────────────────────── */
+.panel {
+  padding: 10px 12px;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 860px) {
+  .panel {
+    margin-bottom: 0;
+  }
+}
+
+.panel-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin: 0 0 8px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #7b7b7b;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-bottom: 6px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.row label {
+  font-size: 13px;
+  white-space: nowrap;
+  min-width: 70px;
+}
+
+.row input[type="range"] {
+  flex: 1;
+  min-width: 80px;
+  max-width: 160px;
+}
+
+.row input[type="number"] {
+  width: 64px;
+}
+
+.row select {
+  flex: 1;
+  min-width: 100px;
+  max-width: 180px;
+  font-size: 13px;
+}
+
+.row .val {
+  font-size: 13px;
+  min-width: 34px;
+}
+
+/* ── Button rows ──────────────────────────────────────────── */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+/* ── Sub-section headings inside a panel ─────────────────── */
+.sub-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  margin: 20px 0 4px;
+}
+
+.chip {
+  font-size: 13px;
+  color: #ababab;
+
+  /* canvas wrapper — scales canvas to fit window */
+  .canvas-wrap {
+    display: inline-block;
+    position: relative;
+  }
+
+  .canvas-wrap canvas {
+    display: block;
+    image-rendering: pixelated;
+  }
